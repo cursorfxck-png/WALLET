@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Walletify - Apply for Work</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;900&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    /* --- SMOOTH SCROLLING --- */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(0deg, rgb(21, 55, 168) 0%, rgb(0, 0, 0) 18.75%, rgb(0, 0, 0) 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
+      overflow-x: hidden;
+      /* Additional smooth scrolling for fallback */
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    .font-roboto { font-family: 'Roboto', sans-serif; }
+    
+    /* Infinite Marquee Animation for Cards */
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-container {
+      overflow: hidden;
+      width: 100%;
+      mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    }
+    .marquee-content {
+      display: flex;
+      width: max-content;
+      animation: scroll 20s linear infinite;
+    }
+    .marquee-content:hover {
+      animation-play-state: paused;
+    }
+
+    /* Custom Scrollbar hiding */
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    
+    /* Input Autofill Fix */
+    input:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0 30px transparent inset !important;
+        -webkit-text-fill-color: white !important;
+        transition: background-color 5000s ease-in-out 0s;
+    }
+
+    /* --- BEAUTIFUL ANIMATED TICK CSS --- */
+    .success-checkmark {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto;
+      border-radius: 50%;
+      display: block;
+      stroke-width: 3;
+      stroke: #A3FEA6;
+      stroke-miterlimit: 10;
+      box-shadow: inset 0px 0px 0px rgba(163, 254, 166, 0.2);
+      animation: fill 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both;
+      position: relative;
+    }
+    .success-checkmark__circle {
+      stroke-dasharray: 166;
+      stroke-dashoffset: 166;
+      stroke-width: 3;
+      stroke-miterlimit: 10;
+      stroke: #A3FEA6;
+      fill: none;
+      animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+    }
+    .success-checkmark__check {
+      transform-origin: 50% 50%;
+      stroke-dasharray: 48;
+      stroke-dashoffset: 48;
+      animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.6s forwards;
+    }
+    @keyframes stroke {
+      100% { stroke-dashoffset: 0; }
+    }
+    @keyframes scale {
+      0%, 100% { transform: none; }
+      50% { transform: scale3d(1.1, 1.1, 1); }
+    }
+    @keyframes fill {
+      100% { box-shadow: inset 0px 0px 0px 40px rgba(163, 254, 166, 0.1); }
+    }
+  </style>
+</head>
+<body class="text-white relative pb-20">
+  
+  <!-- Ambient Blur Line -->
+  <div class="absolute w-full h-[26px] left-0 top-[260px] bg-[#2a2a2a] blur-[22.9px] z-0 overflow-hidden pointer-events-none"></div>
+
+  <!-- HEADER: WALLETIFY -->
+  <header class="relative z-10 flex items-center justify-center pt-16 pb-8">
+    <div class="relative flex items-center h-[75px]">
+      <!-- Inserted App Icon SVG -->
+      <div class="absolute -left-16 top-1/2 -translate-y-1/2 w-[88px] h-[75px] z-0">
+        <svg width="88" height="75" viewBox="0 0 88 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0.282453" y="0.282453" width="87.4351" height="74.4351" rx="22.7175" fill="url(#paint0_linear_301_8846)"/>
+          <rect x="0.282453" y="0.282453" width="87.4351" height="74.4351" rx="22.7175" stroke="url(#paint1_linear_301_8846)" stroke-width="0.564906"/>
+          <path d="M48.4678 28.0215L59.7959 16.6934L65.7812 22.6777L54.4541 34.0049H70.4736V42.4688H54.4541L65.7812 53.7959L59.7969 59.7812L48.4678 48.4521V64.4736H40.0049V48.4541L28.6768 59.7822L22.6914 53.7979L34.0205 42.4688H18V34.0049H34.0205L22.6924 22.6768L28.6768 16.6914L40.0049 28.0195V12H48.4678V28.0215Z" fill="#A3FEA6"/>
+          <defs>
+            <linearGradient id="paint0_linear_301_8846" x1="0" y1="0" x2="74.0519" y2="86.8876" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#1226A9"/>
+              <stop offset="1" stop-color="#0F26C2" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="paint1_linear_301_8846" x1="3.66668" y1="-4.90791e-05" x2="171.972" y2="64.986" gradientUnits="userSpaceOnUse">
+              <stop stop-color="white" stop-opacity="0.38"/>
+              <stop offset="0.565123" stop-color="white" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <span class="font-roboto text-[22px] leading-[1.27] tracking-wider z-10 pl-10 font-bold">WALLETIFY</span>
+    </div>
+  </header>
+
+  <!-- TOP CARDS CAROUSEL -->
+  <section class="relative z-10 marquee-container mt-4 mb-12 px-4">
+    <div class="marquee-content gap-6">
+      
+      <!-- CARD 1: Spotify -->
+      <div class="w-[351px] h-[117px] bg-[#17181c] rounded-[32px] relative shrink-0 overflow-hidden cursor-pointer hover:scale-[1.02] transition-transform">
+        <div class="absolute w-[197px] h-[97px] left-[144px] top-2.5 bg-[#20222b] rounded-[25px]"></div>
+        <span class="absolute left-11 top-4 text-[#6a6f87] text-xs font-semibold tracking-[-0.12px]">ACB Card</span>
+        <span class="absolute left-[232px] top-[62px] text-[#6a6f87] text-xs font-semibold tracking-[-0.12px]">Monthly Price</span>
+        <span class="absolute left-[232px] top-[34px] text-white text-base font-medium tracking-[-0.16px]">Spotify</span>
+        <div class="flex absolute left-5 top-[78px] bg-[#20222b] rounded-[25px] px-3 py-0.5 justify-center items-center">
+          <span class="text-white text-xs font-semibold tracking-[-0.12px]">Send</span>
+        </div>
+        <span class="absolute left-[21px] top-[42px] text-[#ed0b4f] text-lg font-semibold">-$12.000</span>
+        <!-- Inserted Spotify Icon SVG -->
+        <div class="absolute left-[165px] top-[30px]">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M34.8176 19.5413C27.833 15.3933 16.312 15.0119 9.64428 17.0356C8.57351 17.3606 7.44117 16.7559 7.11684 15.6854C6.79229 14.614 7.3961 13.4825 8.46768 13.157C16.1217 10.8337 28.8455 11.2823 36.8863 16.0555C37.8494 16.6273 38.1653 17.8711 37.5945 18.8325C37.0232 19.7956 35.7784 20.113 34.8176 19.5413ZM34.5889 25.685C34.0988 26.4802 33.0592 26.7296 32.2651 26.2413C26.442 22.6619 17.5627 21.625 10.6735 23.7162C9.78012 23.9862 8.8365 23.4824 8.56512 22.5907C8.29595 21.6974 8.79991 20.7555 9.69168 20.4838C17.5615 18.0957 27.345 19.2524 34.0331 23.3624C34.8272 23.8515 35.0772 24.8917 34.5889 25.685ZM31.9375 31.5852C31.5481 32.2238 30.7167 32.4239 30.0805 32.0346C24.9921 28.9248 18.5876 28.2225 11.0451 29.9453C10.3183 30.1119 9.59393 29.6565 9.42817 28.9297C9.2617 28.2031 9.71544 27.4786 10.4439 27.3128C18.6978 25.4259 25.7781 26.238 31.4894 29.7279C32.1261 30.1169 32.3267 30.9487 31.9375 31.5852ZM22.0002 0.33189C10.0332 0.33189 0.331787 10.0331 0.331787 21.9999C0.331787 33.968 10.0332 43.6685 22.0002 43.6685C33.9674 43.6685 43.6684 33.968 43.6684 21.9999C43.6684 10.0331 33.9674 0.33189 22.0002 0.33189Z" fill="#1ED760"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- CARD 2: TCB Bank -->
+      <div class="w-[351px] h-[117px] bg-[#17181c] rounded-[32px] relative shrink-0 overflow-hidden cursor-pointer hover:scale-[1.02] transition-transform">
+        <div class="absolute w-[197px] h-[97px] left-[144px] top-2.5 bg-[#20222b] rounded-[25px]"></div>
+        <span class="absolute left-11 top-4 text-[#6a6f87] text-xs font-semibold tracking-[-0.12px]">TCB Card</span>
+        <span class="absolute left-[232px] top-[62px] text-[#6a6f87] text-xs font-semibold tracking-[-0.12px]">Monthly interest</span>
+        <span class="absolute left-[232px] top-[34px] text-white text-base font-medium tracking-[-0.16px]">TCB Bank</span>
+        <div class="flex absolute left-5 top-[78px] bg-[#20222b] rounded-[25px] px-3 py-0.5 justify-center items-center">
+          <span class="text-white text-xs font-semibold tracking-[-0.12px]">Received</span>
+        </div>
+        <span class="absolute left-[21px] top-[42px] text-[#a3fea6] text-lg font-semibold">+$18.000</span>
+        <!-- Inserted TCB Bank Icon SVG -->
+        <div class="absolute left-[165px] top-[30px]">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M34.8176 19.5413C27.833 15.3933 16.312 15.0119 9.64428 17.0356C8.57351 17.3606 7.44117 16.7559 7.11684 15.6854C6.79229 14.614 7.3961 13.4825 8.46768 13.157C16.1217 10.8337 28.8455 11.2823 36.8863 16.0555C37.8494 16.6273 38.1653 17.8711 37.5945 18.8325C37.0232 19.7956 35.7784 20.113 34.8176 19.5413ZM34.5889 25.685C34.0988 26.4802 33.0592 26.7296 32.2651 26.2413C26.442 22.6619 17.5627 21.625 10.6735 23.7162C9.78012 23.9862 8.8365 23.4824 8.56512 22.5907C8.29595 21.6974 8.79991 20.7555 9.69168 20.4838C17.5615 18.0957 27.345 19.2524 34.0331 23.3624C34.8272 23.8515 35.0772 24.8917 34.5889 25.685ZM31.9375 31.5852C31.5481 32.2238 30.7167 32.4239 30.0805 32.0346C24.9921 28.9248 18.5876 28.2225 11.0451 29.9453C10.3183 30.1119 9.59393 29.6565 9.42817 28.9297C9.2617 28.2031 9.71544 27.4786 10.4439 27.3128C18.6978 25.4259 25.7781 26.238 31.4894 29.7279C32.1261 30.1169 32.3267 30.9487 31.9375 31.5852ZM22.0002 0.33189C10.0332 0.33189 0.331787 10.0331 0.331787 21.9999C0.331787 33.968 10.0332 43.6685 22.0002 43.6685C33.9674 43.6685 43.6684 33.968 43.6684 21.9999C43.6684 10.0331 33.9674 0.33189 22.0002 0.33189Z" fill="#1ED760"/>
+          </svg>
+        </div>
+      </div>
+      
+      <!-- Duplicate Set for Seamless Scrolling Loop -->
+      <div class="w-[351px] h-[117px] bg-[#17181c] rounded-[32px] relative shrink-0 overflow-hidden cursor-pointer hover:scale-[1.02] transition-transform">
+        <div class="absolute w-[197px] h-[97px] left-[144px] top-2.5 bg-[#20222b] rounded-[25px]"></div>
+        <span class="absolute left-11 top-4 text-[#6a6f87] text-xs font-semibold tracking-[-0.12px]">ACB Card</span>
+        <span class="absolute left-[232px] top-[62px] text-[#6a6f87] text-xs font-semibold tracking-[-0.12px]">Monthly Price</span>
+        <span class="absolute left-[232px] top-[34px] text-white text-base font-medium tracking-[-0.16px]">Spotify</span>
+        <div class="flex absolute left-5 top-[78px] bg-[#20222b] rounded-[25px] px-3 py-0.5 justify-center items-center">
+          <span class="text-white text-xs font-semibold tracking-[-0.12px]">Send</span>
+        </div>
+        <span class="absolute left-[21px] top-[42px] text-[#ed0b4f] text-lg font-semibold">-$12.000</span>
+        <div class="absolute left-[165px] top-[30px]">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M34.8176 19.5413C27.833 15.3933 16.312 15.0119 9.64428 17.0356C8.57351 17.3606 7.44117 16.7559 7.11684 15.6854C6.79229 14.614 7.3961 13.4825 8.46768 13.157C16.1217 10.8337 28.8455 11.2823 36.8863 16.0555C37.8494 16.6273 38.1653 17.8711 37.5945 18.8325C37.0232 19.7956 35.7784 20.113 34.8176 19.5413ZM34.5889 25.685C34.0988 26.4802 33.0592 26.7296 32.2651 26.2413C26.442 22.6619 17.5627 21.625 10.6735 23.7162C9.78012 23.9862 8.8365 23.4824 8.56512 22.5907C8.29595 21.6974 8.79991 20.7555 9.69168 20.4838C17.5615 18.0957 27.345 19.2524 34.0331 23.3624C34.8272 23.8515 35.0772 24.8917 34.5889 25.685ZM31.9375 31.5852C31.5481 32.2238 30.7167 32.4239 30.0805 32.0346C24.9921 28.9248 18.5876 28.2225 11.0451 29.9453C10.3183 30.1119 9.59393 29.6565 9.42817 28.9297C9.2617 28.2031 9.71544 27.4786 10.4439 27.3128C18.6978 25.4259 25.7781 26.238 31.4894 29.7279C32.1261 30.1169 32.3267 30.9487 31.9375 31.5852ZM22.0002 0.33189C10.0332 0.33189 0.331787 10.0331 0.331787 21.9999C0.331787 33.968 10.0332 43.6685 22.0002 43.6685C33.9674 43.6685 43.6684 33.968 43.6684 21.9999C43.6684 10.0331 33.9674 0.33189 22.0002 0.33189Z" fill="#1ED760"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="w-[351px] h-[117px] bg-[#17181c] rounded-[32px] relative shrink-0 overflow-hidden cursor-pointer hover:scale-[1.02] transition-transform">
+        <div class="absolute w-[197px] h-[97px] left-[144px] top-2.5 bg-[#20222b] rounded-[25px]"></div>
+        <span class="absolute left-11 top-4 text-[#6a6f87] text-xs font-semibold tracking-[-0.12px]">TCB Card</span>
+        <span class="absolute left-[232px] top-[62px] text-[#6a6f87] text-xs font-semibold tracking-[-0.12px]">Monthly interest</span>
+        <span class="absolute left-[232px] top-[34px] text-white text-base font-medium tracking-[-0.16px]">TCB Bank</span>
+        <div class="flex absolute left-5 top-[78px] bg-[#20222b] rounded-[25px] px-3 py-0.5 justify-center items-center">
+          <span class="text-white text-xs font-semibold tracking-[-0.12px]">Received</span>
+        </div>
+        <span class="absolute left-[21px] top-[42px] text-[#a3fea6] text-lg font-semibold">+$18.000</span>
+        <div class="absolute left-[165px] top-[30px]">
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M34.8176 19.5413C27.833 15.3933 16.312 15.0119 9.64428 17.0356C8.57351 17.3606 7.44117 16.7559 7.11684 15.6854C6.79229 14.614 7.3961 13.4825 8.46768 13.157C16.1217 10.8337 28.8455 11.2823 36.8863 16.0555C37.8494 16.6273 38.1653 17.8711 37.5945 18.8325C37.0232 19.7956 35.7784 20.113 34.8176 19.5413ZM34.5889 25.685C34.0988 26.4802 33.0592 26.7296 32.2651 26.2413C26.442 22.6619 17.5627 21.625 10.6735 23.7162C9.78012 23.9862 8.8365 23.4824 8.56512 22.5907C8.29595 21.6974 8.79991 20.7555 9.69168 20.4838C17.5615 18.0957 27.345 19.2524 34.0331 23.3624C34.8272 23.8515 35.0772 24.8917 34.5889 25.685ZM31.9375 31.5852C31.5481 32.2238 30.7167 32.4239 30.0805 32.0346C24.9921 28.9248 18.5876 28.2225 11.0451 29.9453C10.3183 30.1119 9.59393 29.6565 9.42817 28.9297C9.2617 28.2031 9.71544 27.4786 10.4439 27.3128C18.6978 25.4259 25.7781 26.238 31.4894 29.7279C32.1261 30.1169 32.3267 30.9487 31.9375 31.5852ZM22.0002 0.33189C10.0332 0.33189 0.331787 10.0331 0.331787 21.9999C0.331787 33.968 10.0332 43.6685 22.0002 43.6685C33.9674 43.6685 43.6684 33.968 43.6684 21.9999C43.6684 10.0331 33.9674 0.33189 22.0002 0.33189Z" fill="#1ED760"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORM CONTAINER -->
+  <main class="relative z-10 w-full max-w-[606px] mx-auto px-4" id="form-section">
+    <div class="bg-[#212121] rounded-[29px] w-full p-6 sm:p-8 relative shadow-[0_0_50px_rgba(0,0,0,0.5)]">
+      <h2 class="text-white font-roboto text-[22px] leading-[1.27] uppercase tracking-wide">Apply for work</h2>
+      <hr class="border-t-[6px] border-[#818181] rounded-sm mt-3 mb-8 w-full" />
+
+      <form id="workForm" onsubmit="handleRegistration(event)" class="flex flex-col gap-6">
+        
+        <div class="w-full h-[74px] bg-[#17181c] shadow-[inset_0px_-10px_16px_rgba(163,254,166,0.11)] rounded-[20px] border-[0.5px] border-[#a3fea6] flex items-center px-4 sm:px-6 relative focus-within:border-white transition-colors">
+          <svg class="size-6 shrink-0 mr-3" xmlns="http://www.w3.org/2000/svg" viewBox="-0.4167 -0.4167 20.8333 20.8333"><g transform="translate(7.2667,5.1917)"><path d="M 2.8333 5.4583 C 2.775 5.45 2.7 5.45 2.6333 5.4583 C 1.1667 5.4083 0 4.2083 0 2.7333 C 0 1.225 1.2167 0 2.7333 0 C 4.2417 0 5.4667 1.225 5.4667 2.7333 C 5.4583 4.2083 4.3 5.4083 2.8333 5.4583 Z" fill="none" stroke="#6a6f87" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="translate(4.3833,12.8625)"><path d="M 11.2333 3.6667 C 9.75 5.025 7.7833 5.85 5.6167 5.85 C 3.45 5.85 1.4833 5.025 0 3.6667 C 0.0833 2.8833 0.5833 2.1167 1.475 1.5167 C 3.7583 0 7.4917 0 9.7583 1.5167 C 10.65 2.1167 11.15 2.8833 11.2333 3.6667 Z" fill="none" stroke="#6a6f87" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="translate(1.6667,1.6667)"><path d="M 16.6667 8.3333 C 16.6667 12.9357 12.9357 16.6667 8.3333 16.6667 C 3.731 16.6667 0 12.9357 0 8.3333 C 0 3.731 3.731 0 8.3333 0 C 12.9357 0 16.6667 3.731 16.6667 8.3333" fill="none" stroke="#6a6f87" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
+          <div class="h-6 w-px bg-[#a3fea6] shrink-0 mr-4"></div>
+          <input type="text" placeholder="YOUR NAME" required class="bg-transparent outline-none w-full text-white text-base font-black tracking-[-0.16px] placeholder:text-gray-400" />
+        </div>
+
+        <div class="w-full sm:w-[376px] h-[54px] bg-[#454545] rounded-[14px] flex items-center px-4 relative mt-2 focus-within:ring-1 focus-within:ring-white transition-all shadow-inner">
+          <div class="flex items-center gap-2 shrink-0">
+            <img src="https://flagcdn.com/w20/in.png" srcset="https://flagcdn.com/w40/in.png 2x" width="20" alt="India Flag" class="rounded-[2px] shadow-sm mt-0.5">
+            <span class="text-white text-xl font-black leading-none tracking-[-0.2px]">+91</span>
+          </div>
+          <div class="h-6 w-[1px] bg-white mx-3 shrink-0"></div>
+          <input type="tel" pattern="[0-9]{10}" placeholder="PHONE NO" required title="Please enter exactly 10 digits" class="bg-transparent outline-none w-full text-white text-xl font-black leading-none tracking-[-0.2px] placeholder:text-gray-300 placeholder:opacity-80" />
+        </div>
+
+        <div class="flex flex-wrap gap-4 mt-2">
+          <div class="flex-1 min-w-[250px] relative">
+            <label class="block text-white text-xs font-semibold leading-[1.66] tracking-[-0.12px] mb-2 ml-2">Card number</label>
+            <div class="w-full h-12 bg-[#17181c] rounded-[20px] flex items-center px-4">
+              <svg class="size-5 shrink-0 mr-3 opacity-80" xmlns="http://www.w3.org/2000/svg" viewBox="-0.4583 -0.4583 20.9167 20.9167"><g transform="translate(1.6667,7.0875)"><path d="M 0 0 L 16.6667 0" fill="none" stroke="#6a6f87" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="translate(5,13.7541)"><path d="M 0 0 L 1.6667 0" fill="none" stroke="#6a6f87" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="translate(8.75,13.7541)"><path d="M 0 0 L 3.3333 0" fill="none" stroke="#6a6f87" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="translate(1.6667,2.9208)"><path d="M 3.7 0 L 12.9583 0 C 15.925 0 16.6667 0.7333 16.6667 3.6583 L 16.6667 10.5 C 16.6667 13.425 15.925 14.1583 12.9667 14.1583 L 3.7 14.1583 C 0.7417 14.1667 0 13.4333 0 10.5083 L 0 3.6583 C 0 0.7333 0.7417 0 3.7 0 Z" fill="none" stroke="#6a6f87" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
+              <input type="text" placeholder="1239  3796  2938  1385" required class="bg-transparent outline-none w-full text-white text-sm font-semibold tracking-[-0.14px] placeholder:text-gray-500 font-mono" />
+            </div>
+          </div>
+
+          <div class="flex-1 min-w-[200px] relative">
+            <label class="block text-white text-xs font-semibold leading-[1.66] tracking-[-0.12px] mb-2 ml-2">Expiration date</label>
+            <div class="w-full h-12 bg-[#17181c] rounded-[20px] flex items-center px-4 relative">
+              <svg class="size-5 shrink-0 mr-3 opacity-80" xmlns="http://www.w3.org/2000/svg" viewBox="-0.4583 -0.4583 20.9167 20.9167"><g transform="translate(6.6667,1.6667)"><path d="M 0 0 L 0 2.5" fill="none" stroke="#6a6f87" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="translate(13.3333,1.6667)"><path d="M 0 0 L 0 2.5" fill="none" stroke="#6a6f87" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="translate(2.9167,7.575)"><path d="M 0 0 L 14.1667 0" fill="none" stroke="#6a6f87" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="translate(2.5,2.9167)"><path d="M 15 4.1667 L 15 11.25 C 15 13.75 13.75 15.4167 10.8333 15.4167 L 4.1667 15.4167 C 1.25 15.4167 0 13.75 0 11.25 L 0 4.1667 C 0 1.6667 1.25 0 4.1667 0 L 10.8333 0 C 13.75 0 15 1.6667 15 4.1667 Z" fill="none" stroke="#6a6f87" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
+              <input type="email" placeholder="Type your email" required class="bg-transparent outline-none w-full text-white text-sm font-semibold tracking-[-0.14px] placeholder:text-gray-500" />
+            </div>
+          </div>
+
+          <div class="w-full sm:w-[127px] relative">
+            <label class="block text-white text-xs font-semibold leading-[1.66] tracking-[-0.12px] mb-2 ml-2">CVV</label>
+            <div class="w-full h-12 bg-[#17181c] rounded-[20px] flex items-center px-4">
+               <svg class="size-5 shrink-0 mr-2 opacity-80" xmlns="http://www.w3.org/2000/svg" viewBox="-0.4583 -0.4583 20.9167 20.9167"><g transform="translate(1.6667,7.0875)"><path d="M 0 0 L 16.6667 0" fill="none" stroke="#6a6f87" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="translate(5,13.7541)"><path d="M 0 0 L 1.6667 0" fill="none" stroke="#6a6f87" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="translate(8.75,13.7541)"><path d="M 0 0 L 3.3333 0" fill="none" stroke="#6a6f87" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="translate(1.6667,2.9208)"><path d="M 3.7 0 L 12.9583 0 C 15.925 0 16.6667 0.7333 16.6667 3.6583 L 16.6667 10.5 C 16.6667 13.425 15.925 14.1583 12.9667 14.1583 L 3.7 14.1583 C 0.7417 14.1667 0 13.4333 0 10.5083 L 0 3.6583 C 0 0.7333 0.7417 0 3.7 0 Z" fill="none" stroke="#6a6f87" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
+               <input type="text" placeholder="477" required pattern="[0-9]{3,4}" class="bg-transparent outline-none w-full text-white text-sm font-semibold tracking-[-0.14px] placeholder:text-gray-500 font-mono" />
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="w-[295px] h-[52px] bg-[#0a28f4] hover:bg-[#0820cc] transition-colors rounded-[32px] mx-auto mt-6 text-white text-base font-medium tracking-[-0.16px] text-center shadow-[0_0_20px_rgba(10,40,244,0.4)] active:scale-95">
+          Done
+        </button>
+      </form>
+    </div>
+  </main>
+
+  <!-- ACCURATE TOTAL VIEWS COUNTER (Powered by your API Token) -->
+  <div class="relative z-10 text-center flex flex-col items-center justify-center gap-2 mt-12 pb-6">
+    <span class="text-sm font-semibold tracking-widest text-[#a8cce3] uppercase drop-shadow-md">Total Page Views</span>
+    <div id="viewCounter" class="text-2xl font-black text-white bg-[#17181c] px-8 py-2 rounded-xl border border-gray-700 shadow-inner tracking-widest">
+      <span class="animate-pulse text-sm">Counting...</span>
+    </div>
+  </div>
+
+  <!-- TELEGRAM FOUNDER BUTTON -->
+  <a href="https://t.me/PRAKHARDEV" target="_blank" class="fixed z-50 bottom-6 right-4 sm:bottom-8 sm:right-8 w-auto min-w-[200px] sm:min-w-[265px] h-[64px] sm:h-[74px] bg-gradient-to-r from-[#a8cce3] via-[#167efe] to-[#1c69dd] rounded-[47px] border-[4px] sm:border-[5px] border-white flex items-center px-4 hover:scale-105 transition-transform shadow-[0_10px_30px_rgba(28,105,221,0.5)] cursor-pointer">
+    <div class="size-[42px] sm:size-[53px] bg-white rounded-full flex items-center justify-center shrink-0">
+      <svg class="w-full h-full p-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 53 53"><g transform="translate(4.4167,4.4167)"><path d="M 22.0833 0 C 9.8933 0 0 9.8933 0 22.0833 C 0 34.2733 9.8933 44.1667 22.0833 44.1667 C 34.2733 44.1667 44.1667 34.2733 44.1667 22.0833 C 44.1667 9.8933 34.2733 0 22.0833 0 Z M 32.33 15.0167 C 31.9987 18.5058 30.5633 26.9858 29.8346 30.8946 C 29.5254 32.5508 28.9071 33.1029 28.3329 33.1692 C 27.0521 33.2796 26.0804 32.33 24.8438 31.5129 C 22.9004 30.2321 21.7963 29.4371 19.9192 28.2004 C 17.7329 26.765 19.1463 25.97 20.405 24.6892 C 20.7363 24.3579 26.3896 19.2125 26.5 18.7488 C 26.5153 18.6785 26.5133 18.6056 26.4941 18.5363 C 26.4748 18.467 26.439 18.4035 26.3896 18.3513 C 26.2571 18.2408 26.0804 18.285 25.9258 18.3071 C 25.7271 18.3513 22.6354 20.405 16.6067 24.4683 C 15.7233 25.0646 14.9283 25.3737 14.2217 25.3517 C 13.4267 25.3296 11.925 24.91 10.7988 24.5346 C 9.4075 24.0929 8.3254 23.85 8.4138 23.0771 C 8.4579 22.6796 9.01 22.2821 10.0479 21.8625 C 16.4963 19.0579 20.7804 17.2029 22.9225 16.3196 C 29.0617 13.7579 30.3204 13.3162 31.1596 13.3162 C 31.3363 13.3162 31.7558 13.3604 32.0208 13.5812 C 32.2417 13.7579 32.3079 14.0008 32.33 14.1775 C 32.3079 14.31 32.3521 14.7075 32.33 15.0167 Z" fill="#008cff" stroke="none" fill-rule="nonzero"/></g></svg>
+    </div>
+    <span class="text-white text-lg sm:text-xl font-black ml-4 sm:ml-6 tracking-[-0.2px] uppercase">FOUNDER</span>
+  </a>
+
+  <!-- UPGRADED SUCCESS MODAL -->
+  <div id="successModal" class="fixed inset-0 bg-black/80 z-[100] hidden items-center justify-center p-4 backdrop-blur-md transition-all duration-300">
+    <!-- Modal Box -->
+    <div class="bg-gradient-to-b from-[#212121] to-[#141414] border-[1.5px] border-[#a3fea6]/40 rounded-[29px] p-10 max-w-lg w-full text-center shadow-[0_0_80px_rgba(163,254,166,0.15)] relative transform transition-transform duration-300 scale-95" id="modalContent">
+      
+      <!-- Animated Checkmark Container -->
+      <div class="mb-6">
+        <svg class="success-checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+          <circle class="success-checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+          <path class="success-checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+        </svg>
+      </div>
+
+      <h3 class="text-[28px] font-black text-white mb-3 tracking-wide drop-shadow-md">Registration Successful!</h3>
+      <p class="text-gray-300 text-[17px] leading-relaxed mb-10 opacity-90">
+        We will contact you shortly for work.<br> 
+        <span class="text-[#a3fea6] font-extrabold mt-3 inline-block text-lg bg-[#a3fea6]/10 px-4 py-2 rounded-xl border border-[#a3fea6]/20">
+          You will be paid $25 - $30 per day.
+        </span>
+      </p>
+      <button onclick="closeModal()" class="w-full px-8 py-4 bg-[#0a28f4] hover:bg-[#0820cc] rounded-[24px] text-white font-bold text-lg tracking-wider transition-all shadow-[0_0_20px_rgba(10,40,244,0.4)] active:scale-95">
+        Awesome, Thanks!
+      </button>
+    </div>
+  </div>
+
+  <script>
+    /* Trigger Success Popup */
+    function handleRegistration(e) {
+      e.preventDefault();
+      const modal = document.getElementById('successModal');
+      const content = document.getElementById('modalContent');
+      
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      
+      // Trigger CSS animation for smooth scaling in
+      setTimeout(() => {
+        content.classList.remove('scale-95');
+        content.classList.add('scale-100');
+      }, 10);
+    }
+
+    /* Close Modal */
+    function closeModal() {
+      const modal = document.getElementById('successModal');
+      const content = document.getElementById('modalContent');
+      
+      content.classList.remove('scale-100');
+      content.classList.add('scale-95');
+      
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        document.getElementById('workForm').reset();
+        
+        // Smooth scroll back to top optionally after submission closes
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }, 200);
+    }
+
+    /* Total View Counter Fetch Logic (Using YOUR API Token) */
+    document.addEventListener("DOMContentLoaded", () => {
+      const counterElement = document.getElementById("viewCounter");
+      
+      // YOUR specific provided API key/token
+      const apiToken = 'ut_sRLmfipNy391uyIAfzIrQKHKtNHyGSQyhDW3WDol';
+      const trackingKey = 'walletify_views';
+
+      fetch(`https://api.counterapi.dev/v1/${apiToken}/${trackingKey}/up`)
+        .then(response => response.json())
+        .then(data => {
+            if(data && data.count) {
+                // Show exact accurate view count returned by your API endpoint
+                counterElement.innerHTML = data.count.toLocaleString('en-US');
+            } else {
+                fallbackCounter();
+            }
+        })
+        .catch(err => {
+            console.error("Counter API Issue:", err);
+            fallbackCounter();
+        });
+
+      // Simple LocalStorage Fallback just in case the API goes down
+      function fallbackCounter() {
+        let count = localStorage.getItem('walletifyViews');
+        if (!count) count = 1;
+        else count = parseInt(count) + 1;
+        localStorage.setItem('walletifyViews', count);
+        counterElement.innerHTML = count.toLocaleString('en-US');
+      }
+    });
+  </script>
+</body>
+</html>
